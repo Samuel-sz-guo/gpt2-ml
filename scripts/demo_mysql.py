@@ -139,7 +139,6 @@ def create_one(title,newstText):
         um.cursor.execute(sql,prams)
         #data
         sqlData= "INSERT INTO glc_x.www_kaifamei_com_ecms_news_data_1 (id, classid, keyid, dokey, newstempid, closepl, haveaddfen, infotags, writer, befrom, newstext) VALUES (%s, 16, '', 1, 0, 0, 0, '区块链', '', '', %s);"
-        print(newstText)
         prams = (id, str(newstText))
         um.cursor.execute(sqlData, prams)
         #Index
@@ -157,7 +156,11 @@ def create_one(title,newstText):
                           url, headers=HEADERS_POST)
         print('提交：' + url)
         print('提交：'+r.text)
-
+def select_one_keyword(cursor):
+    cursor.execute("select keyword from key_20201 where iskey = 0;")
+    data = cursor.fetchone()
+    print("取出:")
+    return data
 def extract_generated_target(output_tokens, tokenizer):
     """
     Given some tokens that were generated, extract the target
@@ -209,33 +212,36 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
     saver = tf.train.Saver()
     saver.restore(sess, args.ckpt_fn)
     print('🍺Model loaded. \nInput something please:⬇️')
-    text = input()
-    while text != "":
-        for i in range(args.samples):
-            print("Sample,", i + 1, " of ", args.samples)
-            line = tokenization.convert_to_unicode(text)
-            bert_tokens = tokenizer.tokenize(line)
-            encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
-            context_formatted = []
-            context_formatted.extend(encoded)
-            # Format context end
+    #text = input()
+    #while text != "":
+    with UsingMysql(log_time=True) as um:
+        datakeys = select_one_keyword(um.cursor)
+        for datakey in datakeys:
+            for i in range(args.samples):
+                print("Sample,", i + 1, " of ", args.samples)
+                line = tokenization.convert_to_unicode(datakey)
+                bert_tokens = tokenizer.tokenize(line)
+                encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
+                context_formatted = []
+                context_formatted.extend(encoded)
+                # Format context end
 
-            gens = []
-            gens_raw = []
-            gen_probs = []
+                gens = []
+                gens_raw = []
+                gen_probs = []
 
-            for chunk_i in range(num_chunks):
-                tokens_out, probs_out = sess.run([tokens, probs],
-                                                 feed_dict={initial_context: [context_formatted] * batch_size_per_chunk,
-                                                            eos_token: args.eos_token, min_len: args.min_len,
-                                                            p_for_topp: top_p[chunk_i]})
+                for chunk_i in range(num_chunks):
+                    tokens_out, probs_out = sess.run([tokens, probs],
+                                                     feed_dict={initial_context: [context_formatted] * batch_size_per_chunk,
+                                                                eos_token: args.eos_token, min_len: args.min_len,
+                                                                p_for_topp: top_p[chunk_i]})
 
-                for t_i, p_i in zip(tokens_out, probs_out):
-                    extraction = extract_generated_target(output_tokens=t_i, tokenizer=tokenizer)
-                    gens.append(extraction['extraction'])
+                    for t_i, p_i in zip(tokens_out, probs_out):
+                        extraction = extract_generated_target(output_tokens=t_i, tokenizer=tokenizer)
+                        gens.append(extraction['extraction'])
 
-            l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-            create_one(text,"\n".join(l))
-            print("\n".join(l))
-        print('Next try:⬇️')
-        text = input()
+                l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
+                create_one(datakey,"\n".join(l))
+                print("\n".join(l))
+            print('Next try:⬇️')
+            #text = input()
