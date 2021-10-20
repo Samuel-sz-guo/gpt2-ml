@@ -4,6 +4,7 @@ import argparse
 import json
 import re
 
+import requests
 import tensorflow.compat.v1 as tf
 import numpy as np
 import pymysql
@@ -128,13 +129,12 @@ def select_one(cursor):
 
 # 新增单条记录
 def create_one(title,newstText):
-
     with UsingMysql(log_time=True) as um:
         id = select_one(um.cursor)+1
         times = time.strftime('%Y-%m-%d', time.localtime())
         timelangs = time.time()
-        print(timelangs)
-        sql = "INSERT INTO glc_x.www_kaifamei_com_ecms_news (id, classid, ttid, onclick, plnum, totaldown, newspath, filename, userid, username, firsttitle, isgood, ispic, istop, isqf, ismember, isurl, truetime, lastdotime, havehtml, groupid, userfen, titlefont, titleurl, stb, fstb, restb, keyboard, title, newstime, titlepic, eckuid, ftitle, smalltext, diggtop) VALUES (%s, 16, 0, 2, 0, 0, '', %s, 1, 'kaifamei', 0, 0, 0, 0, 0, 0, 0, %s, %s, 1, 0, 0, '', '/hq/new/%s.html', 1, 1, 1, '', %s, %s, '', 0, %s, '测试简介2', 0);"
+        url = 'https://zdfoundation.org/hq/'+id+'.html'
+        sql = "INSERT INTO glc_x.www_kaifamei_com_ecms_news (id, classid, ttid, onclick, plnum, totaldown, newspath, filename, userid, username, firsttitle, isgood, ispic, istop, isqf, ismember, isurl, truetime, lastdotime, havehtml, groupid, userfen, titlefont, titleurl, stb, fstb, restb, keyboard, title, newstime, titlepic, eckuid, ftitle, smalltext, diggtop) VALUES (%s, 16, 0, 2, 0, 0, '', %s, 1, 'kaifamei', 0, 0, 0, 0, 0, 0, 0, %s, %s, 1, 0, 0, '', '/hq/%s.html', 1, 1, 1, '', %s, %s, '', 0, %s, '测试简介2', 0);"
         prams = (id,id,timelangs,timelangs,id,title,timelangs,title)
         um.cursor.execute(sql,prams)
         #data
@@ -146,6 +146,16 @@ def create_one(title,newstText):
         sqlIndex= "INSERT INTO glc_x.www_kaifamei_com_ecms_news_index (id, classid, checked, newstime, truetime, lastdotime, havehtml) VALUES (%s, 16, 1, %s, %s, %s, 1);"
         prams = (id, timelangs,timelangs,timelangs)
         um.cursor.execute(sqlIndex, prams)
+
+        HEADERS_POST = {
+            "User-Agent": "curl/7.12.1",
+            "Host": "data.zz.baidu.com",
+            "Content-Type": "text/plain",
+            "Content-Length": "83"
+        }
+        r = requests.post('http://data.zz.baidu.com/urls?site=https://zdfoundation.org&token=vtgRi1g5lZcHBRfL',
+                          url, headers=HEADERS_POST)
+        print('提交：'+r.text)
 
 def extract_generated_target(output_tokens, tokenizer):
     """
@@ -224,7 +234,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                     gens.append(extraction['extraction'])
 
             l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-            create_one(text, l)
+            create_one(text,"\n".join(l))
             print("\n".join(l))
         print('Next try:⬇️')
         text = input()
