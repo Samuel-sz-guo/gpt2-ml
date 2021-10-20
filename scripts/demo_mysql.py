@@ -158,8 +158,8 @@ def create_one(title,newstText):
         print('提交：'+r.text)
 def select_one_keyword(cursor):
     cursor.execute("select keyword from key_20201 where iskey = 0;")
-    data = cursor.fetchone()
-    print("取出:")
+    data = cursor.fetchall()
+    print("取出keywords")
     return data
 def extract_generated_target(output_tokens, tokenizer):
     """
@@ -219,7 +219,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
         for datakey in datakeys:
             for i in range(args.samples):
                 print("Sample,", i + 1, " of ", args.samples)
-                line = tokenization.convert_to_unicode(datakey)
+                line = tokenization.convert_to_unicode(datakey['keyword'])
                 bert_tokens = tokenizer.tokenize(line)
                 encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
                 context_formatted = []
@@ -241,7 +241,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                         gens.append(extraction['extraction'])
 
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-                create_one(datakey,"\n".join(l))
+                create_one(datakey['keyword'],"\n".join(l))
                 print("\n".join(l))
             print('Next try:⬇️')
             #text = input()
