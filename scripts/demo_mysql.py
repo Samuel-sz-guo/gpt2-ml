@@ -133,7 +133,7 @@ def create_one(title,newstText):
         id = select_one(um.cursor)+1
         times = time.strftime('%Y-%m-%d', time.localtime())
         timelangs = time.time()
-        url = 'https://zdfoundation.org/hq/'+id+'.html'
+        url = 'https://zdfoundation.org/hq/'+str(id)+'.html'
         sql = "INSERT INTO glc_x.www_kaifamei_com_ecms_news (id, classid, ttid, onclick, plnum, totaldown, newspath, filename, userid, username, firsttitle, isgood, ispic, istop, isqf, ismember, isurl, truetime, lastdotime, havehtml, groupid, userfen, titlefont, titleurl, stb, fstb, restb, keyboard, title, newstime, titlepic, eckuid, ftitle, smalltext, diggtop) VALUES (%s, 16, 0, 2, 0, 0, '', %s, 1, 'kaifamei', 0, 0, 0, 0, 0, 0, 0, %s, %s, 1, 0, 0, '', '/hq/%s.html', 1, 1, 1, '', %s, %s, '', 0, %s, '测试简介2', 0);"
         prams = (id,id,timelangs,timelangs,id,title,timelangs,title)
         um.cursor.execute(sql,prams)
@@ -155,6 +155,7 @@ def create_one(title,newstText):
         }
         r = requests.post('http://data.zz.baidu.com/urls?site=https://zdfoundation.org&token=vtgRi1g5lZcHBRfL',
                           url, headers=HEADERS_POST)
+        print('提交：' + url)
         print('提交：'+r.text)
 
 def extract_generated_target(output_tokens, tokenizer):
