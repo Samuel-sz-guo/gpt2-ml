@@ -139,7 +139,7 @@ def create_one(title,newstText):
         um.cursor.execute(sql,prams)
         #data
         sqlData= "INSERT INTO glc_x.www_kaifamei_com_ecms_news_data_1 (id, classid, keyid, dokey, newstempid, closepl, haveaddfen, infotags, writer, befrom, newstext) VALUES (%s, 16, '', 1, 0, 0, 0, '区块链', '', '', %s);"
-        prams = (id, newstText)
+        prams = (id, str(newstText))
         um.cursor.execute(sqlData, prams)
         #Index
         sqlIndex= "INSERT INTO glc_x.www_kaifamei_com_ecms_news_index (id, classid, checked, newstime, truetime, lastdotime, havehtml) VALUES (%s, 16, 1, %s, %s, %s, 1);"
