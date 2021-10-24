@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7953d4d0-de9e-40ed-8c44-7caa1a7fdf0b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="demo_ac_mysql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="237" column="21" lean-forward="true" selection-start-line="237" selection-start-column="21" selection-end-line="237" selection-end-column="21" />
+            <state relative-caret-position="427">
+              <caret line="238" column="25" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -773,8 +772,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="237" column="21" lean-forward="true" selection-start-line="237" selection-start-column="21" selection-end-line="237" selection-end-column="21" />
+        <state relative-caret-position="427">
+          <caret line="238" column="25" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
         </state>
       </provider>
     </entry>
