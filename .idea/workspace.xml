@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7953d4d0-de9e-40ed-8c44-7caa1a7fdf0b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" afterDir="false" />
-    </list>
+    <list default="true" id="7953d4d0-de9e-40ed-8c44-7caa1a7fdf0b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +271,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
