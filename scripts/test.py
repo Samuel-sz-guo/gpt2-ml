@@ -37,9 +37,8 @@ def create_one(title,newstText):
         um.cursor.execute(sqlIndex, prams)
 
 if __name__ == '__main__':
-    #create_one('python测试3','正文3')
-    with UsingMysql(log_time=True) as um:
-        datakeys = select_one_keyword(um.cursor)
-        print(datakeys)
+    cont=''
+    cont = cont+'<p>'+ 'zhhengwenbewneqewq1'+'</p><br/>'
+    print(cont)
 
 

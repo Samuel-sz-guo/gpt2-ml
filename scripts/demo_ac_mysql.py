@@ -236,7 +236,9 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
 
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
                 #增加换行
-                cont = cont,'<p>',l,'</p><br/>'
+                print(l)
+                cont = cont+'<p>'+l+'</p><br/>'
+                print(cont)
             print(cont)
             #create_one(datakey['keyword'], cont)
             print('Next try:⬇️')
