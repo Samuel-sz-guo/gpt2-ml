@@ -213,7 +213,6 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
             key2 = datakey['key2'].split("|")
             cont = ''
             for keyword in key2:
-                print("Sample,", i + 1, " of ", args.samples)
                 line = tokenization.convert_to_unicode(keyword)
                 bert_tokens = tokenizer.tokenize(line)
                 encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
