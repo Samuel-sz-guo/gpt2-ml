@@ -20,7 +20,7 @@
       <file leaf-file-name="demo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
+            <state relative-caret-position="-509">
               <caret line="120" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="pymysql_comm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/pymysql_comm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="-201">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#43#75#0" expanded="true" />
@@ -44,8 +44,20 @@
       <file leaf-file-name="demo_ac_mysql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="214" column="32" selection-start-line="214" selection-start-column="32" selection-end-line="214" selection-end-column="32" />
+            <state relative-caret-position="354">
+              <caret line="238" column="41" selection-start-line="238" selection-start-column="41" selection-end-line="238" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo_mysql.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/demo_mysql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="244" column="31" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -268,9 +280,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32957748" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32848486" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32848486" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30615166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30615166" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -725,36 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/demo_mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3465">
-          <caret line="231" selection-start-line="231" selection-end-line="231" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/pymysql_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#43#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-21">
@@ -765,10 +747,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/demo_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="244" column="31" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/pymysql_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#43#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-509">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="214" column="32" selection-start-line="214" selection-start-column="32" selection-end-line="214" selection-end-column="32" />
+        <state relative-caret-position="354">
+          <caret line="238" column="41" selection-start-line="238" selection-start-column="41" selection-end-line="238" selection-end-column="41" />
         </state>
       </provider>
     </entry>
