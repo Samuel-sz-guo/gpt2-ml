@@ -133,7 +133,7 @@ def create_one(title,newstText):
         id = select_one(um.cursor)+1
         times = time.strftime('%Y-%m-%d', time.localtime())
         timelangs = time.time()
-        miaosu = newstText[0:30]
+        miaosu = newstText[3:34]
         sql = "INSERT INTO szfusheng_com_cn.dede_archives (id, typeid, typeid2, sortrank, flag, ismake, channel, arcrank, click, money, title, shorttitle, color, writer, source, litpic, pubdate, senddate, mid, keywords, lastpost, scores, goodpost, badpost, voteid, notpost, description, filename, dutyadmin, tackid, mtype, weight) VALUES (%s, 2, '0', %s, 'c,p', 1, 1, 0, 95, 0, %s, '', '', '富力股市网', 'http://www.szfusheng.com.cn', '/tu/4274Tybx.jpg', %s, %s, 1, %s, 0, 0, 0, 0, 0, 0, %s, '', 1, 0, 0, 0);"
         prams = (id,timelangs,title,timelangs,timelangs,title,miaosu)
         um.cursor.execute(sql,prams)
@@ -148,7 +148,7 @@ def create_one(title,newstText):
 
 
 def select_one_keyword(cursor):
-    cursor.execute("select keyword from key_20201 where iskey = 0;")
+    cursor.execute("select keyword from key_20202")
     data = cursor.fetchall()
     print("取出keywords")
     return data
@@ -207,10 +207,14 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
     #while text != "":
     with UsingMysql(log_time=True) as um:
         datakeys = select_one_keyword(um.cursor)
+        #循环关键词表
         for datakey in datakeys:
-            for i in range(args.samples):
+            #分割关联标题，批量生成。
+            key2 = datakey['key2'].split("|")
+            cont = ''
+            for keyword in key2:
                 print("Sample,", i + 1, " of ", args.samples)
-                line = tokenization.convert_to_unicode(datakey['keyword'])
+                line = tokenization.convert_to_unicode(keyword)
                 bert_tokens = tokenizer.tokenize(line)
                 encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
                 context_formatted = []
@@ -232,7 +236,8 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                         gens.append(extraction['extraction'])
 
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-                create_one(datakey['keyword'],"\n".join(l))
-                print("\n".join(l))
+                #增加换行
+                cont = cont +'<p>'+l+'</p><br/>'
+            create_one(datakey['keyword'], cont)
             print('Next try:⬇️')
             #text = input()

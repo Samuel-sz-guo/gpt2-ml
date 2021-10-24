@@ -38,7 +38,4 @@ def create_one(title,newstText):
 
 if __name__ == '__main__':
     #create_one('python测试3','正文3')
-    with UsingMysql(log_time=True) as um:
-        datakeys = select_one_keyword(um.cursor)
-        for datakey in datakeys:
-            print(datakey['keyword'])
+    print('<p>1'[3:5])
