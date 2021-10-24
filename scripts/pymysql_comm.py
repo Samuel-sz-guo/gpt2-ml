@@ -4,11 +4,11 @@ from timeit import default_timer
 
 import pymysql
 
-host = '8.210.51.215'
+host = '103.215.51.30'
 port = 3306
-db = 'glc_x'
-user = 'glc_x'
-password = 'j3EjZNHbikt6XmPc'
+db = 'szfusheng_com_cn'
+user = 'root'
+password = 'a4ec18f8de4406f7'
 
 # ---- 用pymysql 操作数据库
 def get_connection():
