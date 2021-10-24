@@ -139,7 +139,7 @@ def create_one(title,newstText):
         um.cursor.execute(sql,prams)
         #data
         sqlData= "INSERT INTO szfusheng_com_cn.dede_addonarticle (aid, typeid, body, redirecturl, templet, userip) VALUES (%s, 2,%s, '', '', '182.133.143.177');"
-        prams = (id, str(newstText))
+        prams = (id, newstText)
         um.cursor.execute(sqlData, prams)
         #Index
         sqlIndex= "INSERT INTO szfusheng_com_cn.dede_arctiny (id, typeid, typeid2, arcrank, channel, senddate, sortrank, mid) VALUES (%s, 1, '0', 0, 1, %s, %s, 1);"
