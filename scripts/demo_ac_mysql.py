@@ -148,7 +148,7 @@ def create_one(title,newstText):
 
 
 def select_one_keyword(cursor):
-    cursor.execute("select keyword from key_20202")
+    cursor.execute("select keyword,key2 from key_20202")
     data = cursor.fetchall()
     print("取出keywords")
     return data

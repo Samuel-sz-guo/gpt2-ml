@@ -11,7 +11,7 @@ def select_one(cursor):
     return data['id']
 
 def select_one_keyword(cursor):
-    cursor.execute("select keyword from key_20201")
+    cursor.execute("select keyword from key_20202")
     data = cursor.fetchall()
     print("取出:")
     return data
@@ -38,4 +38,8 @@ def create_one(title,newstText):
 
 if __name__ == '__main__':
     #create_one('python测试3','正文3')
-    print('<p>1'[3:5])
+    with UsingMysql(log_time=True) as um:
+        datakeys = select_one_keyword(um.cursor)
+        print(datakeys)
+
+
