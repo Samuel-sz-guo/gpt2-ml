@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7953d4d0-de9e-40ed-8c44-7caa1a7fdf0b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/demo_ac_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +45,11 @@
       <file leaf-file-name="demo_ac_mysql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="242" column="27" lean-forward="true" selection-start-line="242" selection-start-column="27" selection-end-line="242" selection-end-column="27" />
+            <state relative-caret-position="670">
+              <caret line="241" column="39" selection-start-line="241" selection-start-column="39" selection-end-line="241" selection-end-column="39" />
+              <folding>
+                <element signature="e#7807#8417#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,7 +69,7 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="570">
               <caret line="42" column="43" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="43" />
               <folding>
                 <element signature="e#43#52#0" expanded="true" />
@@ -282,9 +285,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32957748" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32848486" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32848486" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31473532" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32331902" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -764,7 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="570">
           <caret line="42" column="43" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="43" />
           <folding>
             <element signature="e#43#52#0" expanded="true" />
@@ -774,8 +777,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo_ac_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="242" column="27" lean-forward="true" selection-start-line="242" selection-start-column="27" selection-end-line="242" selection-end-column="27" />
+        <state relative-caret-position="670">
+          <caret line="241" column="39" selection-start-line="241" selection-start-column="39" selection-end-line="241" selection-end-column="39" />
+          <folding>
+            <element signature="e#7807#8417#0" />
+          </folding>
         </state>
       </provider>
     </entry>

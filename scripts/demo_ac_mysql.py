@@ -208,22 +208,23 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
     with UsingMysql(log_time=True) as um:
         datakeys = select_one_keyword(um.cursor)
         #循环关键词表
+
         for datakey in datakeys:
             #分割关联标题，批量生成。
             key2 = datakey['key2'].split("|")
             cont = ''
+            title = datakey['keyword']
             for keyword in key2:
+                print(keyword)
                 line = tokenization.convert_to_unicode(keyword)
                 bert_tokens = tokenizer.tokenize(line)
                 encoded = tokenizer.convert_tokens_to_ids(bert_tokens)
                 context_formatted = []
                 context_formatted.extend(encoded)
                 # Format context end
-
                 gens = []
                 gens_raw = []
                 gen_probs = []
-
                 for chunk_i in range(num_chunks):
                     tokens_out, probs_out = sess.run([tokens, probs],
                                                      feed_dict={initial_context: [context_formatted] * batch_size_per_chunk,
@@ -233,11 +234,11 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                     for t_i, p_i in zip(tokens_out, probs_out):
                         extraction = extract_generated_target(output_tokens=t_i, tokenizer=tokenizer)
                         gens.append(extraction['extraction'])
-
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
                 #增加换行
                 lcont = re.search('(.*)+。', l[0]).group(0)
                 cont = cont+'<p>'+lcont+'</p><br/>'
-            create_one(datakey['keyword'], cont)
+                title1 = keyword
+            create_one(title+'_'+title1, cont)
             print('Next try:⬇️')
             #text = input()
