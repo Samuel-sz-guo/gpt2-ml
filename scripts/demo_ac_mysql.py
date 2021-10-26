@@ -238,7 +238,9 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                 #增加换行
                 print('生成完成')
                 lcont = re.search('(.*)+。', l[0]).group(0)
+                print('第一阶段处理完成')
                 cont = cont+'<p>'+lcont+'</p><br/>'
+                print('第二阶段处理完成')
                 title1 = keyword
                 print('单段处理完成')
             create_one(title+'_'+title1, cont)
