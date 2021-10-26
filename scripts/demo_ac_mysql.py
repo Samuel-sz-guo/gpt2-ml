@@ -240,6 +240,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                 lcont = re.search('(.*)+。', l[0]).group(0)
                 cont = cont+'<p>'+lcont+'</p><br/>'
                 title1 = keyword
+                print('单段处理完成')
             create_one(title+'_'+title1, cont)
             print('Next try:⬇️')
             #text = input()
