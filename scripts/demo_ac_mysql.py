@@ -208,12 +208,12 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
     with UsingMysql(log_time=True) as um:
         datakeys = select_one_keyword(um.cursor)
         #循环关键词表
-
         for datakey in datakeys:
             #分割关联标题，批量生成。
             key2 = datakey['key2'].split("|")
             cont = ''
             title = datakey['keyword']
+            title1 = ''
             for keyword in key2:
                 print(keyword)
                 line = tokenization.convert_to_unicode(keyword)
@@ -236,6 +236,7 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                         gens.append(extraction['extraction'])
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
                 #增加换行
+                print('生成完成')
                 lcont = re.search('(.*)+。', l[0]).group(0)
                 cont = cont+'<p>'+lcont+'</p><br/>'
                 title1 = keyword
