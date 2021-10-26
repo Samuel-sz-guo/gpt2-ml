@@ -40,6 +40,6 @@ def create_one(title,newstText):
 
 if __name__ == '__main__':
     cont='小米集团股票股吧里总能看到一些无聊的问题，要举报就直接举报。反正米酒不是米8。不知道有人为啥要这么无聊[SEP]可以入手。具体见小米公司对其'
-    print(re.search('(.*)+。',cont).group(0))
+    print(cont[0:cont.rfind('。')])
 
 

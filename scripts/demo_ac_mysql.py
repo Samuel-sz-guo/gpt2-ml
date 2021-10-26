@@ -237,7 +237,8 @@ with tf.Session(config=tf_config, graph=tf.Graph()) as sess:
                 l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
                 #增加换行
                 print('生成完成')
-                lcont = re.search('(.*)+。', l[0]).group(0)
+                #lcont = re.search('(.*)+。', l[0]).group(0)
+                lcont = l[0][0:lcont.rfind('。')]
                 print('第一阶段处理完成')
                 cont = cont+'<p>'+lcont+'</p><br/>'
                 print('第二阶段处理完成')
